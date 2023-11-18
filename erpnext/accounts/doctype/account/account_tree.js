@@ -55,7 +55,7 @@ frappe.treeview_settings["Account"] = {
 		} else {
 			accounts = nodes;
 		}
-
+		console.log(accounts)
 		const get_balances = frappe.call({
 			method: 'erpnext.accounts.utils.get_account_balances',
 			args: {

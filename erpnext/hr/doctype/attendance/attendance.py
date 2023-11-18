@@ -72,16 +72,16 @@ class Attendance(Document):
 		if leave_record:
 			for d in leave_record:
 				self.leave_type = d.leave_type
-				if d.half_day_date == getdate(self.attendance_date):
-					self.status = "Half Day"
-					frappe.msgprint(
-						_("Employee {0} on Half day on {1}").format(self.employee, formatdate(self.attendance_date))
-					)
-				else:
-					self.status = "On Leave"
-					frappe.msgprint(
-						_("Employee {0} is on Leave on {1}").format(self.employee, formatdate(self.attendance_date))
-					)
+				#if d.half_day_date == getdate(self.attendance_date):
+				#	self.status = "Half Day"
+				#	frappe.msgprint(
+				#		_("Employee {0} on Half day on {1}").format(self.employee, formatdate(self.attendance_date))
+				#	)
+				#else:
+				self.status = "On Leave"
+				frappe.msgprint(
+					_("Employee {0} is on Leave on {1}").format(self.employee, formatdate(self.attendance_date))
+				)
 
 		if self.status in ("On Leave", "Half Day"):
 			if not leave_record:

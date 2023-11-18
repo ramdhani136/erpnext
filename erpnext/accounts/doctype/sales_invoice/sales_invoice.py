@@ -106,7 +106,8 @@ class SalesInvoice(SellingController):
 		self.validate_with_previous_doc()
 		self.validate_uom_is_integer("stock_uom", "stock_qty")
 		self.validate_uom_is_integer("uom", "qty")
-		self.check_sales_order_on_hold_or_close("sales_order")
+		# custom chandra 7 juni 2022
+		# self.check_sales_order_on_hold_or_close("sales_order")
 		self.validate_debit_to_acc()
 		self.clear_unallocated_advances("Sales Invoice Advance", "advances")
 		self.add_remarks()

@@ -2,6 +2,7 @@
  "actions": [],
  "allow_auto_repeat": 1,
  "allow_import": 1,
+ "allow_rename": 1,
  "autoname": "naming_series:",
  "creation": "2013-06-18 12:39:59",
  "doctype": "DocType",
@@ -22,6 +23,9 @@
   "company",
   "transaction_date",
   "delivery_date",
+  "customer_cash",
+  "nama_customer_cash",
+  "alamat_customer_cash",
   "po_no",
   "po_date",
   "tax_id",
@@ -206,6 +210,7 @@
    "search_index": 1
   },
   {
+   "allow_on_submit": 1,
    "bold": 1,
    "fetch_from": "customer.customer_name",
    "fieldname": "customer_name",
@@ -213,8 +218,7 @@
    "hide_days": 1,
    "hide_seconds": 1,
    "in_global_search": 1,
-   "label": "Customer Name",
-   "read_only": 1
+   "label": "Customer Name"
   },
   {
    "default": "Sales",
@@ -1244,6 +1248,7 @@
    "width": "50%"
   },
   {
+   "allow_on_submit": 1,
    "default": "Draft",
    "fieldname": "status",
    "fieldtype": "Select",
@@ -1521,17 +1526,36 @@
    "fieldtype": "Percent",
    "label": "% Picked",
    "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "customer_cash",
+   "fieldtype": "Check",
+   "label": "Customer Cash"
+  },
+  {
+   "depends_on": "eval:doc.customer_cash",
+   "fieldname": "nama_customer_cash",
+   "fieldtype": "Small Text",
+   "label": "Nama Customer Cash",
+   "mandatory_depends_on": "eval:doc.customer_cash"
+  },
+  {
+   "depends_on": "eval:doc.customer_cash",
+   "fieldname": "alamat_customer_cash",
+   "fieldtype": "Small Text",
+   "label": "Alamat Customer Cash",
+   "mandatory_depends_on": "eval:doc.customer_cash"
   }
  ],
  "icon": "fa fa-file-text",
  "idx": 105,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-03-15 21:38:31.437586",
+ "modified": "2023-11-16 17:26:31.233477",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Sales Order",
- "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -1601,7 +1625,6 @@
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
  "timeline_field": "customer",
  "title_field": "customer_name",
  "track_changes": 1,

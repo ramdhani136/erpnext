@@ -766,11 +766,12 @@ class PurchaseReceipt(BuyingController):
 
 def update_billed_amount_based_on_po(po_detail, update_modified=True):
 	# Billed against Sales Order directly
-	billed_against_po = frappe.db.sql(
-		"""select sum(amount) from `tabPurchase Invoice Item`
-		where po_detail=%s and (pr_detail is null or pr_detail = '') and docstatus=1""",
-		po_detail,
-	)
+#	billed_against_po = frappe.db.sql("""select sum(amount) from `tabPurchase Invoice Item` where po_detail=%s and (pr_detail is null or pr_detail = '') and docstatus=1""",
+#		po_detail,
+#	)
+	billed_against_po = frappe.db.sql("""select sum(pi.amount) from `tabPurchase Invoice Item` pi left join `tabPurchase Invoice` p
+               on p.name = pi.parent
+               where p.update_stock=0 and pi.po_detail=%s and (pi.pr_detail is null or pi.pr_detail = '') and pi.docstatus=1""", po_detail)
 	billed_against_po = billed_against_po and billed_against_po[0][0] or 0
 
 	# Get all Purchase Receipt Item rows against the Purchase Order Item row

@@ -113,8 +113,7 @@
    "label": "Rate",
    "oldfieldname": "rate",
    "oldfieldtype": "Currency",
-   "options": "Company:company:default_currency",
-   "read_only": 1
+   "options": "Company:company:default_currency"
   },
   {
    "fieldname": "amount",
@@ -207,7 +206,7 @@
  "idx": 1,
  "istable": 1,
  "links": [],
- "modified": "2021-06-19 19:33:04.431213",
+ "modified": "2023-03-09 13:49:57.524461",
  "modified_by": "Administrator",
  "module": "Buying",
  "name": "Purchase Receipt Item Supplied",

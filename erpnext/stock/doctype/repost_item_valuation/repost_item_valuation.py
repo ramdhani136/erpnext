@@ -27,7 +27,7 @@ class RepostItemValuation(Document):
 			self.item_code = None
 			self.warehouse = None
 
-		self.allow_negative_stock = 1
+		self.allow_negative_stock = 0
 
 	def set_company(self):
 		if self.based_on == "Transaction":
@@ -142,7 +142,7 @@ def repost(doc):
 			message += "<br>" + "Traceback: <br>" + traceback
 		frappe.db.set_value(doc.doctype, doc.name, "error_log", message)
 
-		notify_error_to_stock_managers(doc, message)
+		# notify_error_to_stock_managers(doc, message)
 		doc.set_status("Failed")
 		raise
 	finally:

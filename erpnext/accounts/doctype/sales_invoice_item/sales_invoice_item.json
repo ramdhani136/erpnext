@@ -14,6 +14,7 @@
   "customer_item_code",
   "description_section",
   "description",
+  "nama_ppn",
   "item_group",
   "brand",
   "image_section",
@@ -91,6 +92,7 @@
   "edit_references",
   "sales_order",
   "so_detail",
+  "sales_order_amount",
   "sales_invoice_item",
   "column_break_74",
   "delivery_note",
@@ -442,6 +444,7 @@
    "width": "120px"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "expense_account",
    "fieldtype": "Link",
    "label": "Expense Account",
@@ -672,6 +675,7 @@
    "label": "References"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "sales_order",
    "fieldtype": "Link",
    "label": "Sales Order",
@@ -680,7 +684,6 @@
    "oldfieldtype": "Link",
    "options": "Sales Order",
    "print_hide": 1,
-   "read_only": 1,
    "search_index": 1
   },
   {
@@ -837,19 +840,28 @@
    "fieldtype": "Check",
    "label": "Grant Commission",
    "read_only": 1
+  },
+  {
+   "fieldname": "nama_ppn",
+   "fieldtype": "Data",
+   "label": "Nama_PPN"
+  },
+  {
+   "fetch_from": "sales_order.grand_total",
+   "fieldname": "sales_order_amount",
+   "fieldtype": "Data",
+   "label": "Sales Order Amount"
   }
  ],
  "idx": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-02-24 14:41:36.392560",
+ "modified": "2023-06-26 16:54:05.079530",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Sales Invoice Item",
- "naming_rule": "Random",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",
  "sort_order": "DESC"
 }
-

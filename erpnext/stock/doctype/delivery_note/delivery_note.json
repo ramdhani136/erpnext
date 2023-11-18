@@ -2,6 +2,7 @@
  "actions": [],
  "allow_auto_repeat": 1,
  "allow_import": 1,
+ "allow_rename": 1,
  "autoname": "naming_series:",
  "creation": "2013-05-24 19:29:09",
  "doctype": "DocType",
@@ -14,6 +15,9 @@
   "naming_series",
   "customer",
   "customer_name",
+  "customer_cash",
+  "nama_customer_cash",
+  "alamat_customer_cash",
   "column_break1",
   "amended_from",
   "company",
@@ -149,7 +153,8 @@
   "commission_rate",
   "total_commission",
   "section_break1",
-  "sales_team"
+  "sales_team",
+  "nomor_invoice_zahir"
  ],
  "fields": [
   {
@@ -201,14 +206,14 @@
    "search_index": 1
   },
   {
+   "allow_on_submit": 1,
    "bold": 1,
    "depends_on": "customer",
    "fetch_from": "customer.customer_name",
    "fieldname": "customer_name",
    "fieldtype": "Data",
    "in_global_search": 1,
-   "label": "Customer Name",
-   "read_only": 1
+   "label": "Customer Name"
   },
   {
    "fieldname": "column_break1",
@@ -1309,17 +1314,41 @@
    "fieldtype": "Currency",
    "label": "Amount Eligible for Commission",
    "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "customer_cash",
+   "fieldtype": "Check",
+   "label": "Customer Cash"
+  },
+  {
+   "depends_on": "eval:doc.customer_cash",
+   "fieldname": "nama_customer_cash",
+   "fieldtype": "Small Text",
+   "label": "Nama Customer Cash",
+   "mandatory_depends_on": "eval:doc.customer_cash"
+  },
+  {
+   "depends_on": "eval:doc.customer_cash",
+   "fieldname": "alamat_customer_cash",
+   "fieldtype": "Small Text",
+   "label": "Alamat Customer Cash",
+   "mandatory_depends_on": "eval:doc.customer_cash"
+  },
+  {
+   "fieldname": "nomor_invoice_zahir",
+   "fieldtype": "Data",
+   "label": "Nomor Invoice Zahir"
   }
  ],
  "icon": "fa fa-truck",
  "idx": 146,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-03-10 14:29:13.428984",
+ "modified": "2023-11-16 17:31:00.558828",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Delivery Note",
- "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {

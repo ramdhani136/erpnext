@@ -126,17 +126,17 @@ erpnext.selling.SalesOrderController = erpnext.selling.SellingController.extend(
 					   me.frm.cscript.update_status('Resume', 'Draft')
 				   }, __("Status"));
 
-				   if(flt(doc.per_delivered, 6) < 100 || flt(doc.per_billed) < 100) {
+				   //if(flt(doc.per_delivered, 6) < 100 || flt(doc.per_billed) < 100) {
 					   // close
-					   this.frm.add_custom_button(__('Close'), () => this.close_sales_order(), __("Status"))
-				   }
+				//	   this.frm.add_custom_button(__('Close'), () => this.close_sales_order(), __("Status"))
+				  // }
 				}
-			   	else if(doc.status === 'Closed') {
+			   	//else if(doc.status === 'Closed') {
 				   // un-close
-				   this.frm.add_custom_button(__('Re-open'), function() {
-					   me.frm.cscript.update_status('Re-open', 'Draft')
-				   }, __("Status"));
-			   }
+				 //  this.frm.add_custom_button(__('Re-open'), function() {
+				//	   me.frm.cscript.update_status('Re-open', 'Draft')
+				  // }, __("Status"));
+			   //}
 			}
 			if(doc.status !== 'Closed') {
 				if(doc.status !== 'On Hold') {
@@ -148,7 +148,7 @@ erpnext.selling.SalesOrderController = erpnext.selling.SellingController.extend(
 							// hold
 							this.frm.add_custom_button(__('Hold'), () => this.hold_sales_order(), __("Status"))
 							// close
-							this.frm.add_custom_button(__('Close'), () => this.close_sales_order(), __("Status"))
+							//this.frm.add_custom_button(__('Close'), () => this.close_sales_order(), __("Status"))
 						}
 					}
 

@@ -317,7 +317,7 @@
  "in_create": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-10-08 13:44:51.857631",
+ "modified": "2022-12-29 11:21:43.961134",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Stock Ledger Entry",
@@ -335,6 +335,19 @@
    "read": 1,
    "report": 1,
    "role": "Accounts Manager"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "IT Staff",
+   "select": 1,
+   "share": 1,
+   "write": 1
   }
  ],
  "sort_field": "modified",

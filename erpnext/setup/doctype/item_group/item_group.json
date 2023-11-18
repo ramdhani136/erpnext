@@ -229,15 +229,13 @@
  "icon": "fa fa-sitemap",
  "idx": 1,
  "image_field": "image",
- "is_tree": 1,
  "links": [],
  "max_attachments": 3,
- "modified": "2022-03-09 12:27:11.055782",
+ "modified": "2023-03-03 09:39:37.300513",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Item Group",
  "name_case": "Title Case",
- "naming_rule": "By fieldname",
  "nsm_parent_field": "parent_item_group",
  "owner": "Administrator",
  "permissions": [
@@ -304,6 +302,5 @@
  "search_fields": "parent_item_group",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
- "sort_order": "DESC",
- "states": []
+ "sort_order": "DESC"
 }

@@ -127,6 +127,12 @@ def execute():
 			loan_type_doc.loan_account = loan.loan_account
 			loan_type_doc.interest_income_account = loan.interest_income_account
 			loan_type_doc.penalty_income_account = penalty_account
+			loan_type_doc.disbursement_account="BCA - E"
+			loan_type_doc.mode_of_payment="Cash"
+			loan_type_doc.payment_account="BCA - E"
+			loan_type_doc.loan_account="2211.001 - Hutang - E"
+			loan_type_doc.interest_income_account="4480.000 - Pendapatan Lain lain - E"
+			loan_type_doc.penalty_income_account="4480.000 - Pendapatan Lain lain - E"
 			loan_type_doc.submit()
 			updated_loan_types.append(loan.loan_type)
 			loan_type = loan.loan_type

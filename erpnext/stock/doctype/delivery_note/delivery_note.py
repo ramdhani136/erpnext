@@ -126,6 +126,8 @@ class DeliveryNote(SellingController):
 	def validate(self):
 		self.validate_posting_time()
 		super(DeliveryNote, self).validate()
+		if not self.is_return and self.workflow_state=="Draft":
+			self.check_credit_limit()
 		self.set_status()
 		self.so_required()
 		self.validate_proj_cust()
@@ -138,7 +140,9 @@ class DeliveryNote(SellingController):
 		from erpnext.stock.doctype.packed_item.packed_item import make_packing_list
 
 		make_packing_list(self)
-
+		for row in self.items:
+			if row.warehouse != row.target_warehouse and row.target_warehouse:
+				row.target_warehouse = ""
 		if self._action != "submit" and not self.is_return:
 			set_batch_nos(self, "warehouse", throw=True)
 			set_batch_nos(self, "warehouse", throw=True, child_table="packed_items")
@@ -236,10 +240,11 @@ class DeliveryNote(SellingController):
 		# update delivered qty in sales order
 		self.update_prevdoc_status()
 		self.update_billing_status()
-
-		if not self.is_return:
-			self.check_credit_limit()
-		elif self.issue_credit_note:
+#remove error on submit
+#		if not self.is_return:
+#			self.check_credit_limit()
+#		el
+		if self.issue_credit_note:
 			self.make_return_invoice()
 		# Updating stock ledger should always be called after updating prevdoc status,
 		# because updating reserved qty in bin depends upon updated delivered qty in SO
@@ -293,7 +298,7 @@ class DeliveryNote(SellingController):
 
 		if validate_against_credit_limit:
 			check_credit_limit(
-				self.customer, self.company, bypass_credit_limit_check_at_sales_order, extra_amount
+				self.customer, self.company, bypass_credit_limit_check_at_sales_order, extra_amount,self.workflow_state!="Draft"
 			)
 
 	def validate_packed_qty(self):

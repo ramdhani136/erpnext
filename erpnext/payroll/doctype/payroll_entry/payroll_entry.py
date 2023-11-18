@@ -591,7 +591,7 @@ def get_emp_list(sal_struct, cond, end_date, payroll_payable_account):
 				`tabEmployee` t1, `tabSalary Structure Assignment` t2
 			where
 				t1.name = t2.employee
-				and t2.docstatus = 1
+				and t2.docstatus = 1 and t2.disable=0
 				and t1.status != 'Inactive'
 		%s order by t2.from_date desc
 		"""

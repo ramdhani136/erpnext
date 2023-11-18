@@ -1362,9 +1362,9 @@ class SalarySlip(TransactionBase):
 
 		if not self.get("loans"):
 			for loan in self.get_loan_details():
-
+				frappe.msgprint(loan.name)
 				amounts = calculate_amounts(loan.name, self.posting_date, "Regular Payment")
-
+				frappe.msgprint(amounts["payable_principal_amount"])
 				if amounts["interest_amount"] or amounts["payable_principal_amount"]:
 					self.append(
 						"loans",

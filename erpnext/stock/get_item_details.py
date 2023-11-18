@@ -674,8 +674,9 @@ def calculate_service_end_date(args, item=None):
 
 def get_default_income_account(args, item, item_group, brand):
 	return (
-		item.get("income_account")
-		or item_group.get("income_account")
+		#remove baca income account di item
+		#item.get("income_account")
+		item_group.get("income_account")
 		or brand.get("income_account")
 		or args.income_account
 	)
@@ -683,8 +684,9 @@ def get_default_income_account(args, item, item_group, brand):
 
 def get_default_expense_account(args, item, item_group, brand):
 	return (
-		item.get("expense_account")
-		or item_group.get("expense_account")
+		#remove baca expense account di item
+		#item.get("expense_account")
+		item_group.get("expense_account")
 		or brand.get("expense_account")
 		or args.expense_account
 	)

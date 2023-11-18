@@ -180,7 +180,7 @@ def get_balance_on(
 			# this indicates that it is a date older than any existing fiscal year.
 			# hence, assuming balance as 0.0
 			return 0.0
-
+	
 	if account:
 		report_type = acc.report_type
 	else:
@@ -247,7 +247,7 @@ def get_balance_on(
 			FROM `tabGL Entry` gle
 			WHERE {1}""".format(
 				select_field, " and ".join(cond)
-			)
+			),debug=1
 		)[0][0]
 
 		# if bal is None, return 0
@@ -958,6 +958,20 @@ def get_children(doctype, parent, company, is_root=False):
 
 	return acc
 
+
+@frappe.whitelist()
+def debug_get_account_balances():
+	accounts = [
+	    {
+	        "value": "8000.000 - Pendapatan Lainnya - ETM-SMG",
+	        "expandable": 1,
+	        "root_type": "Income",
+	        "report_type": "Profit and Loss",
+	        "account_currency": "IDR"
+	    }
+	]
+	company = "PT EKATUNGGAL TUNAS MANDIRI - SEMARANG"
+	return get_account_balances(accounts,company)
 
 @frappe.whitelist()
 def get_account_balances(accounts, company):

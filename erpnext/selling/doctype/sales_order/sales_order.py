@@ -626,6 +626,9 @@ def close_or_unclose_sales_orders(names, status):
 			else:
 				if so.status == "Closed":
 					so.update_status("Draft")
+					# custom chandra 07-06
+					so.update_reserved_qty()
+
 			so.update_blanket_order()
 
 	frappe.local.message_log = []

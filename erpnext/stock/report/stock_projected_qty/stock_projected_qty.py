@@ -60,6 +60,19 @@ def execute(filters=None):
 		if reserved_qty_for_pos:
 			bin.projected_qty -= reserved_qty_for_pos
 
+		# closed_po_query = frappe.db.sql("""
+		# 	SELECT IFNULL(SUM(poi.stock_qty - poi.received_qty),0) `closed_qty`
+		# 	FROM `tabPurchase Order Item` poi
+		# 	JOIN `tabPurchase Order` po on po.name = poi.parent
+		# 	WHERE po.docstatus = 1
+		# 	AND poi.warehouse = "{}"
+		# 	AND poi.item_code = "{}"
+		# 	AND po.status = "Close"
+		# 	""".format(bin.warehouse, bin.item_code))
+		
+		# bin.ordered_qty -= closed_po_query[0][0]
+		# bin.projected_qty -= closed_po_query[0][0]
+
 		data.append(
 			[
 				item.name,

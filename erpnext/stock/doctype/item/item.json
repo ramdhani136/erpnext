@@ -17,6 +17,7 @@
   "variant_of",
   "item_name",
   "item_group",
+  "kode_zahir",
   "is_item_from_hub",
   "stock_uom",
   "column_break0",
@@ -947,6 +948,11 @@
    "fieldname": "grant_commission",
    "fieldtype": "Check",
    "label": "Grant Commission"
+  },
+  {
+   "fieldname": "kode_zahir",
+   "fieldtype": "Data",
+   "label": "Kode Zahir"
   }
  ],
  "icon": "fa fa-tag",
@@ -954,7 +960,7 @@
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-12-14 04:13:16.857534",
+ "modified": "2023-03-06 11:12:28.206146",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Item",
@@ -1018,7 +1024,7 @@
   }
  ],
  "quick_entry": 1,
- "search_fields": "item_name,description,item_group,customer_code",
+ "search_fields": "item_name,description,item_group,customer_code,kode_zahir",
  "show_name_in_global_search": 1,
  "show_preview_popup": 1,
  "sort_field": "modified",

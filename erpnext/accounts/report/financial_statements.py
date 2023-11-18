@@ -489,7 +489,7 @@ def set_gl_entries_by_account(
 				distributed_cost_center_query=distributed_cost_center_query,
 			),
 			gl_filters,
-			as_dict=True,
+			as_dict=True, debug=1
 		)  # nosec
 
 		if filters and filters.get("presentation_currency"):
@@ -524,11 +524,29 @@ def get_additional_conditions(from_date, ignore_closing_entries, filters):
 			additional_conditions.append("cost_center in %(cost_center)s")
 
 		if filters.get("include_default_book_entries"):
-			additional_conditions.append(
-				"(finance_book in (%(finance_book)s, %(company_fb)s, '') OR finance_book IS NULL)"
-			)
+			# custom chandra
+			# additional_conditions.append(
+			# 	"(finance_book in (%(finance_book)s, %(company_fb)s, '') OR finance_book IS NULL)"
+			# )	
+			if filters.get("finance_book"):
+				additional_conditions.append(
+					"(finance_book in (%(finance_book)s, %(company_fb)s, '') OR finance_book IS NULL)"
+				)
+			else:
+				additional_conditions.append(
+					"(finance_book in (SELECT name FROM `tabFinance Book`) OR finance_book IS NULL)"
+				)
 		else:
-			additional_conditions.append("(finance_book in (%(finance_book)s, '') OR finance_book IS NULL)")
+			if filters.get("finance_book"):
+				additional_conditions.append(
+					"(finance_book in (%(finance_book)s, '') OR finance_book IS NULL)"
+				)
+			else:
+				additional_conditions.append(
+					"(finance_book in (SELECT name FROM `tabFinance Book`) OR finance_book IS NULL)"
+				)
+
+			# additional_conditions.append("(finance_book in (%(finance_book)s, '') OR finance_book IS NULL)")
 
 	if accounting_dimensions:
 		for dimension in accounting_dimensions:

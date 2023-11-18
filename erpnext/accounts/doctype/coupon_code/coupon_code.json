@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "allow_import": 1,
  "autoname": "field:coupon_name",
  "creation": "2018-01-22 14:34:39.701832",
@@ -13,6 +14,13 @@
   "column_break_4",
   "coupon_code",
   "pricing_rule",
+  "price_discount_schema_section",
+  "rate_or_discount",
+  "apply_on",
+  "column_break_10",
+  "rate",
+  "discount_amount",
+  "discount_percentage",
   "uses",
   "valid_from",
   "valid_upto",
@@ -62,9 +70,9 @@
   {
    "fieldname": "pricing_rule",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Pricing Rule",
-   "options": "Pricing Rule",
-   "reqd": 1
+   "options": "Pricing Rule"
   },
   {
    "fieldname": "uses",
@@ -83,12 +91,12 @@
    "label": "Valid Upto"
   },
   {
-   "depends_on": "eval: doc.coupon_type == \"Promotional\"",
    "fieldname": "maximum_use",
    "fieldtype": "Int",
    "label": "Maximum Use"
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "used",
    "fieldtype": "Int",
@@ -113,9 +121,50 @@
    "options": "Coupon Code",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "price_discount_schema_section",
+   "fieldtype": "Section Break",
+   "label": "Price Discount Schema"
+  },
+  {
+   "fieldname": "rate_or_discount",
+   "fieldtype": "Select",
+   "label": "Rate Or Discount",
+   "options": "\nDiscount Percentage\nDiscount Amount"
+  },
+  {
+   "fieldname": "apply_on",
+   "fieldtype": "Select",
+   "label": "Apply On",
+   "options": "Grand Total\nNet Total"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.rate_or_discount==\"Rate\"",
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "label": "Rate"
+  },
+  {
+   "depends_on": "eval:doc.rate_or_discount==\"Discount Amount\"",
+   "fieldname": "discount_amount",
+   "fieldtype": "Currency",
+   "label": "Discount Amount"
+  },
+  {
+   "depends_on": "eval:doc.rate_or_discount==\"Discount Percentage\"",
+   "fieldname": "discount_percentage",
+   "fieldtype": "Float",
+   "label": "Discount Percentage"
   }
  ],
- "modified": "2019-10-19 14:48:14.602481",
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-06-26 15:11:56.180320",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Coupon Code",

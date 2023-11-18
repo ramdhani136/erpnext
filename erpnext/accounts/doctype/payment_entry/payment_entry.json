@@ -731,11 +731,10 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-02-23 20:08:39.559814",
+ "modified": "2022-12-16 14:22:28.743523",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Payment Entry",
- "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -774,7 +773,6 @@
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
  "title_field": "title",
  "track_changes": 1
 }

@@ -12,6 +12,7 @@
   "ensure_delivery_based_on_produced_serial_no",
   "col_break1",
   "delivery_date",
+  "catatan",
   "item_name",
   "section_break_5",
   "description",
@@ -802,20 +803,24 @@
    "fieldname": "picked_qty",
    "fieldtype": "Float",
    "label": "Picked Qty"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "catatan",
+   "fieldtype": "Text",
+   "label": "Catatan"
   }
  ],
  "idx": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-03-15 20:17:33.984799",
+ "modified": "2023-09-15 11:00:58.831621",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Sales Order Item",
- "naming_rule": "Random",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
  "track_changes": 1
 }

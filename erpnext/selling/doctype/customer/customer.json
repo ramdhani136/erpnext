@@ -16,6 +16,7 @@
   "customer_name",
   "gender",
   "customer_type",
+  "status_customer",
   "pan",
   "tax_withholding_category",
   "default_bank_account",
@@ -504,6 +505,12 @@
    "no_copy": 1,
    "options": "Opportunity",
    "print_hide": 1
+  },
+  {
+   "fieldname": "status_customer",
+   "fieldtype": "Select",
+   "label": "Status Customer",
+   "options": "\nAktif\nPassive\nTutup\nCustomer Bermasalah\nCustomer Baru\nCustomer Cash"
   }
  ],
  "icon": "fa fa-user",
@@ -517,7 +524,7 @@
    "link_fieldname": "party"
   }
  ],
- "modified": "2021-09-06 17:38:54.196663",
+ "modified": "2023-06-30 14:50:49.106802",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Customer",

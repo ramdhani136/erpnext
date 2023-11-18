@@ -90,8 +90,7 @@
    "fieldtype": "Link",
    "in_standard_filter": 1,
    "label": "Item Code",
-   "options": "Item",
-   "reqd": 1
+   "options": "Item"
   },
   {
    "depends_on": "item_code",
@@ -503,7 +502,7 @@
    "link_fieldname": "asset"
   }
  ],
- "modified": "2022-01-30 20:19:24.680027",
+ "modified": "2022-12-23 11:37:55.113262",
  "modified_by": "Administrator",
  "module": "Assets",
  "name": "Asset",

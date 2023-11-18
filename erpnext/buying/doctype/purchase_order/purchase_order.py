@@ -261,8 +261,10 @@ class PurchaseOrder(BuyingController):
 					frappe.throw(
 						_("Material Request {0} is cancelled or stopped").format(mr), frappe.InvalidStatusError
 					)
-
-				mr_obj.update_requested_qty(mr_item_rows)
+				
+				# custom andy for patch	
+				# if mr_obj.status not in ["Stopped", "Cancelled"]:
+			mr_obj.update_requested_qty(mr_item_rows)
 
 	def update_ordered_qty(self, po_item_rows=None):
 		"""update requested qty (before ordered_qty is updated)"""

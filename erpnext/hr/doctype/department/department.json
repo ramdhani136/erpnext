@@ -19,6 +19,10 @@
   "leave_block_list",
   "approvers",
   "leave_approvers",
+  "kepala_bagian",
+  "nama_kepala_bagian",
+  "manager_bagian",
+  "nama_manager_bagian",
   "expense_approvers",
   "shift_request_approver",
   "lft",
@@ -33,18 +37,14 @@
    "label": "Department",
    "oldfieldname": "department_name",
    "oldfieldtype": "Data",
-   "reqd": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "reqd": 1
   },
   {
    "fieldname": "parent_department",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Parent Department",
-   "options": "Department",
-   "show_days": 1,
-   "show_seconds": 1
+   "options": "Department"
   },
   {
    "fieldname": "company",
@@ -52,9 +52,7 @@
    "in_standard_filter": 1,
    "label": "Company",
    "options": "Company",
-   "reqd": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "reqd": 1
   },
   {
    "bold": 1,
@@ -62,23 +60,17 @@
    "fieldname": "is_group",
    "fieldtype": "Check",
    "in_list_view": 1,
-   "label": "Is Group",
-   "show_days": 1,
-   "show_seconds": 1
+   "label": "Is Group"
   },
   {
    "default": "0",
    "fieldname": "disabled",
    "fieldtype": "Check",
-   "label": "Disabled",
-   "show_days": 1,
-   "show_seconds": 1
+   "label": "Disabled"
   },
   {
    "fieldname": "section_break_4",
-   "fieldtype": "Section Break",
-   "show_days": 1,
-   "show_seconds": 1
+   "fieldtype": "Section Break"
   },
   {
    "description": "Days for which Holidays are blocked for this department.",
@@ -86,25 +78,19 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Leave Block List",
-   "options": "Leave Block List",
-   "show_days": 1,
-   "show_seconds": 1
+   "options": "Leave Block List"
   },
   {
    "fieldname": "leave_approvers",
    "fieldtype": "Table",
    "label": "Leave Approver",
-   "options": "Department Approver",
-   "show_days": 1,
-   "show_seconds": 1
+   "options": "Department Approver"
   },
   {
    "fieldname": "expense_approvers",
    "fieldtype": "Table",
    "label": "Expense Approver",
-   "options": "Department Approver",
-   "show_days": 1,
-   "show_seconds": 1
+   "options": "Department Approver"
   },
   {
    "fieldname": "lft",
@@ -112,9 +98,7 @@
    "hidden": 1,
    "label": "lft",
    "print_hide": 1,
-   "read_only": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "read_only": 1
   },
   {
    "fieldname": "rgt",
@@ -122,9 +106,7 @@
    "hidden": 1,
    "label": "rgt",
    "print_hide": 1,
-   "read_only": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "read_only": 1
   },
   {
    "fieldname": "old_parent",
@@ -132,52 +114,66 @@
    "hidden": 1,
    "ignore_user_permissions": 1,
    "label": "Old Parent",
-   "print_hide": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "print_hide": 1
   },
   {
    "fieldname": "column_break_3",
-   "fieldtype": "Column Break",
-   "show_days": 1,
-   "show_seconds": 1
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "payroll_cost_center",
    "fieldtype": "Link",
    "label": "Payroll Cost Center",
-   "options": "Cost Center",
-   "show_days": 1,
-   "show_seconds": 1
+   "options": "Cost Center"
   },
   {
    "fieldname": "column_break_9",
-   "fieldtype": "Column Break",
-   "show_days": 1,
-   "show_seconds": 1
+   "fieldtype": "Column Break"
   },
   {
    "description": "The first Approver in the list will be set as the default Approver.",
    "fieldname": "approvers",
    "fieldtype": "Section Break",
-   "label": "Approvers",
-   "show_days": 1,
-   "show_seconds": 1
+   "label": "Approvers"
   },
   {
    "fieldname": "shift_request_approver",
    "fieldtype": "Table",
    "label": "Shift Request Approver",
-   "options": "Department Approver",
-   "show_days": 1,
-   "show_seconds": 1
+   "options": "Department Approver"
+  },
+  {
+   "fieldname": "kepala_bagian",
+   "fieldtype": "Link",
+   "label": "Kepala Bagian ",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "manager_bagian",
+   "fieldtype": "Link",
+   "label": "Manager Bagian",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "kepala_bagian.employee_name",
+   "fieldname": "nama_kepala_bagian",
+   "fieldtype": "Data",
+   "label": "Nama Kepala Bagian",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "manager_bagian.employee_name",
+   "fieldname": "nama_manager_bagian",
+   "fieldtype": "Data",
+   "label": "Nama Manager Bagian",
+   "read_only": 1
   }
  ],
  "icon": "fa fa-sitemap",
  "idx": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2020-06-23 15:42:00.563272",
+ "modified": "2022-12-20 11:15:52.306891",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Department",

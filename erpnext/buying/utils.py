@@ -47,6 +47,9 @@ def validate_for_items(doc) -> None:
 		if not d.qty:
 			if doc.doctype == "Purchase Receipt" and d.rejected_qty:
 				continue
+			# custom chandra
+			# karena conf doc bisa qty jadi 0. tidak bisa reject karena nanti masuk ke gudang reject
+			continue
 			frappe.throw(_("Please enter quantity for Item {0}").format(d.item_code))
 
 		set_stock_levels(row=d)  # update with latest quantities
